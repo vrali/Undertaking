@@ -1,0 +1,11 @@
+<template>
+    <require from="./calendar-header"></require>
+    <require from="./calendar-week-view"></require>
+    <require from="./calendar-month-view"></require>
+
+    <calendar-header view.bind ="calendarModel.View" > </calendar-header>
+    <div class="fc-view-container" style="">
+        <calendar-week-view if.bind="isWeekView"></calendar-week-view>        
+        <calendar-month-view  if.bind="!isWeekView"></calendar-month-view>
+    </div>
+</template>

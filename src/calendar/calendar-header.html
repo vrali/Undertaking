@@ -1,4 +1,5 @@
-<template>
+<template>    
+    
     <div class="fc-toolbar">
         <div class="fc-left">
             <div class="fc-button-group"><button type="button" class="fc-prev-button fc-button fc-state-default fc-corner-left"><span class="fc-icon fc-icon-left-single-arrow"></span></button>
@@ -8,15 +9,12 @@
         <div
             class="fc-right">
             <div class="fc-button-group">
-                <button type="button" class="fc-month-button fc-button fc-state-default fc-corner-left fc-state-active">month</button>
-                <button type="button" class="fc-agendaWeek-button fc-button fc-state-default">week</button></div>
+                <button type="button" click.delegate="changeView('month')" class="fc-month-button fc-button fc-state-default fc-corner-left fc-state-active">month</button>
+                <button type="button" click.delegate="changeView('week')" class="fc-agendaWeek-button fc-button fc-state-default">week</button></div>
     </div>
     <div class="fc-center">
         <h2>${viewLabel}</h2>
     </div>
     <div class="fc-clear"></div>
     </div>
-    <div class="fc-view-container" style="">
-        <calendar-view view.bind="view"></calendar-view>
-    </div>
-</template>
+    </template>

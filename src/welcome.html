@@ -1,7 +1,7 @@
 
 
 <template>
-    <require from="./calendar"></require>
+    <require from="./calendar/calendar-control"></require>
   <section class="au-animate">
     <h2>${heading}</h2>
     <form role="form" submit.delegate="submit()">
@@ -20,5 +20,5 @@
       <button type="submit" class="btn btn-default">Submit</button>
     </form>
   </section>
-  <calendar></calendar>
+  <calendar-control></calendar-control>
 </template>
