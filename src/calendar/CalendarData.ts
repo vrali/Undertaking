@@ -12,4 +12,4 @@ export interface Schedule{
     time: Time;
     label: string;
     id: number;
-}
+} 
