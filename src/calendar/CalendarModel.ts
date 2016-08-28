@@ -20,7 +20,11 @@ export default class CalendarModel {
     constructor(public View : string = 'month', Date :moment.Moment = moment()) {          
         this.date = Date;          
     }
-    Schedule: Schedule[];
+
+    private _Schedule: Schedule[];
+    get Schedule(): Schedule[] {
+        return this._Schedule;
+    }  
 }
 export enum Time { slotB, slotL, slotD }
 
