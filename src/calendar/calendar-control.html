@@ -3,9 +3,9 @@
     <require from="./calendar-week-view"></require>
     <require from="./calendar-month-view"></require>
 
-    <calendar-header view.bind ="calendarModel.View" > </calendar-header>
+    <calendar-header data.two-way ="calendarModel" > </calendar-header>
     <div class="fc-view-container" style="">
-        <calendar-week-view if.bind="isWeekView"></calendar-week-view>        
-        <calendar-month-view  if.bind="!isWeekView"></calendar-month-view>
+        <calendar-week-view if.bind="calendarModel.View !== 'month'" data.two-way="calendarModel"></calendar-week-view>        
+        <calendar-month-view  if.bind="calendarModel.View === 'month'" data.two-way="calendarModel"></calendar-month-view>
     </div>
 </template>

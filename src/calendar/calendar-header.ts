@@ -1,21 +1,25 @@
 import { bindable, inject } from 'aurelia-framework';
 import {EventAggregator} from 'aurelia-event-aggregator';
+import CalendarModel from './CalendarModel';
+import moment from 'moment';
 
-@inject(Element, EventAggregator)
+@inject(Element)
 export class CalendarHeaderCustomElement {
     element: any;
     viewLabel: any;
-    ea : EventAggregator;
-    @bindable view: string;
+    @bindable data: CalendarModel;
 
-    constructor(Element, EventAggregator) {
+    constructor(Element) {
         this.element = Element;
         this.viewLabel= "August 2016";
-        this.ea = EventAggregator ;
     }
 
     changeView(view:string)
     {
-        this.ea.publish('calendar: viewChanged',view);
+        this.data.View = view;        
+    }
+
+    changePage(){
+        this.data.date = moment(this.data.date).add(1,this.data.View as moment.UnitOfTime);
     }
 }

@@ -1,29 +1,29 @@
 import { customElement, bindable, inject } from 'aurelia-framework';
-import {EventAggregator} from 'aurelia-event-aggregator';
-import CalendarModel from './calendarData';
+import CalendarModel from './CalendarModel';
 
 @customElement('calendar-control')
-@inject(EventAggregator)
 export class Calendar {
     @bindable calendarModel : CalendarModel;
     isWeekView : boolean = false;
-    ea: EventAggregator;
-    subscriber : any;
+    // subscriber : any;
 
-    constructor(eventAggregator) {
-        this.calendarModel = new CalendarModel('month');
-        this.ea = eventAggregator;        
+    constructor() {
     }
 
-    attached() {
-        var that = this;
-        this.subscriber = this.ea.subscribe('calendar: viewChanged', view =>{
-            that.calendarModel.View = view;
-            that.isWeekView = view ==='week';
-        });
+    attached() {        
+        this.calendarModel = new CalendarModel('month');      
+        // var that = this;
+        // this.subscriber = this.ea.subscribe(CalendarModel.Events.changeView, view =>{
+        //     that.calendarModel.View = view;
+        //     that.isWeekView = view ==='week';
+        // });
+    }
+
+    calendarModelChanged(newVal,oldVal){
+        console.log("thisis hit");
     }
 
     detached() {
-        this.subscriber.dispose();
+        // this.subscriber.dispose();
     }
 }
